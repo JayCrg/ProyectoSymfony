@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Asignaturas index{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+    <h1>Asignaturas index</h1>
+    <a href="{{ path('app_asignaturas_new') }}" class="btn btn-secondary">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Curso</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for asignatura in asignaturas %}
+            <tr>
+                <td>{{ asignatura.id }}</td>
+                <td>{{ asignatura.nombre }}</td>
+                <td>{{ asignatura.curso }}</td>
+                <td>
+                    <a href="{{ path('app_asignaturas_show', {'id': asignatura.id}) }}" class="btn btn-primary">Show</a>
+                    <a href="{{ path('app_asignaturas_edit', {'id': asignatura.id}) }}" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

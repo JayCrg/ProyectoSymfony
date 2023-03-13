@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+    {{ include('partials/navigation.html.twig') }}
+    {{medias|json_encode()|raw}}
+    <h2>Notas de clase</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                {% for asignatura in asignaturas %}
+                    <td>{{ asignatura.nombre_asignatura }}</td>
+                {% endfor %}
+                <th>Nota media</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nombre in nombres %}
+            <tr>
+                <td>{{ nombre }}</td>
+                {% for asignatura in asignaturas %}
+                    <td>
+                        {% for alumno in alumnos %}
+                            {% if alumno.nombre_alumno == nombre and alumno.nombre_asignatura == asignatura.nombre_asignatura %}
+                                {{ alumno.nota }}
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+                <td>
+                    {{ medias[nombre] }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        
+<a class="btn btn-secondary"  href="{{ path('clase') }}">Back</a>
+<a href="{{ path('app_index') }}" class="btn btn-warning">Back to menu</a>
+{% endblock %}

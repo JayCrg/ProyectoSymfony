@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AlumAsigProf index{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Matriculas index</h1>
+    
+    <a href="{{ path('app_alum_asig_prof_new') }}" class="btn btn-secondary" >Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AlumnoId</th>
+                <th>ProfId</th>
+                <th>AsigId</th>
+                <th>Nota</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for alum_asig_prof in alum_asig_profs %}
+            <tr>
+                <td>{{ alum_asig_prof.id }}</td>
+                <td>{{ alum_asig_prof.alumnoId }}</td>
+                <td>{{ alum_asig_prof.profId }}</td>
+                <td>{{ alum_asig_prof.asigId }}</td>
+
+                <td>{{ alum_asig_prof.nota }}</td>
+                <td>
+                    <a href="{{ path('app_alum_asig_prof_show', {'id': alum_asig_prof.id}) }}"class="btn btn-primary">Show</a>
+                    <a href="{{ path('app_alum_asig_prof_edit', {'id': alum_asig_prof.id}) }}"class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

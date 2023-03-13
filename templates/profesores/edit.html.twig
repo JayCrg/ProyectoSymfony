@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Profesores{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Edit Profesores</h1>
+
+    {{ include('profesores/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('profesores') }}"class="btn btn-warning">Back to list</a>
+
+    {{ include('profesores/_delete_form.html.twig') }}
+{% endblock %}

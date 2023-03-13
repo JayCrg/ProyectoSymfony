@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Profesores{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Create new Profesores</h1>
+
+    {{ include('profesores/_form.html.twig') }}
+
+    <a href="{{ path('profesores') }}"class="btn btn-warning">Back to list</a>
+{% endblock %}

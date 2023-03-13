@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Asignaturas{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Edit Asignaturas</h1>
+
+    {{ include('asignaturas/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_asignaturas_index') }}" class="btn btn-warning">Back to list</a>
+
+    {{ include('asignaturas/_delete_form.html.twig') }}
+{% endblock %}

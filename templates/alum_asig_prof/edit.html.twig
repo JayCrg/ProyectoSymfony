@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Matriculas{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Edit Matricula</h1>
+
+    {{ include('alum_asig_prof/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_alum_asig_prof_index') }}">Back to list</a>
+
+    {{ include('alum_asig_prof/_delete_form.html.twig') }}
+{% endblock %}

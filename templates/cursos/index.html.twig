@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cursos index{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Cursos index</h1>
+    <a href="{{ path('app_cursos_new') }}" class="btn btn-secondary">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Numero</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for curso in cursos %}
+            <tr>
+                <td>{{ curso.id }}</td>
+                <td>{{ curso.nombre }}</td>
+                <td>{{ curso.numero }}</td>
+                <td>
+                    <a href="{{ path('app_cursos_show', {'id': curso.id}) }}" class="btn btn-primary">Show</a>
+                    <a href="{{ path('app_cursos_edit', {'id': curso.id}) }}" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

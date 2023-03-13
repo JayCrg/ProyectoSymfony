@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Matriculas{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Create new Matricula</h1>
+
+    {{ include('alum_asig_prof/_form.html.twig') }}
+
+    <a href="{{ path('app_alum_asig_prof_index') }}" class="btn btn-secondary">Back to list</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AlumAsigProf{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Matricula</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ alum_asig_prof.id }}</td>
+            </tr>
+            <tr>
+                <th>Alumno</th>
+                <td>{{ alum_asig_prof.alumnoId }}</td>
+            </tr>
+            <tr>
+                <th>Asignatura</th>
+                <td>{{ alum_asig_prof.asigId }}</td>
+            </tr>
+            <tr>
+                <th>Profesor</th>
+                <td>{{ alum_asig_prof.profId }}</td>
+            </tr>
+            <tr>
+                <th>Nota</th>
+                <td>{{ alum_asig_prof.nota }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_alum_asig_prof_index') }}" class="btn btn-warning">Back to list</a>
+
+    <a href="{{ path('app_alum_asig_prof_edit', {'id': alum_asig_prof.id}) }}" class="btn btn-success">Edit</a>
+
+    {{ include('alum_asig_prof/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Asignaturas{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Create new Asignaturas</h1>
+
+    {{ include('asignaturas/_form.html.twig') }}
+
+    <a href="{{ path('app_asignaturas_index') }}" class="btn btn-warning">Back to list</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alumnos{% endblock %}
+
+{% block body %}
+    {{ include('partials/navigation.html.twig') }}
+
+    <h1>Alumnos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ alumno.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ alumno.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ alumno.apellidos }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ alumno.sexo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_alumnos_index') }}" class="btn btn-warning">Back to list</a>
+
+    <a href="{{ path('app_alumnos_edit', {'id': alumno.id}) }}" class="btn btn-success">Edit</a>
+
+    {{ include('alumnos/_delete_form.html.twig') }}
+{% endblock %}
